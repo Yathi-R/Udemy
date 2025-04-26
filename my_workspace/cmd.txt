@@ -1,0 +1,21 @@
+openOCD general commands
+
+cd git_repo/Udemy/my_workspace
+
+arm-none-eabi-gcc -nostdlib -T stm32_ls.ld *.o -o final.elf
+arm-none-eabi-nm.exe final.elf
+
+arm-none-eabi-objdump.exe -h final.elf
+
+arm-none-eabi-gdb.exe
+target remote localhost:3333
+monitor reset init
+
+monitor flash write_image erase final.elf
+monitor reset halt
+monitor resume
+monitor halt
+monitor reset
+monitor mdw 0x20000000 4
+monitor bp address 2 hw (to set breakpoint)
+monitor rbp address
